@@ -1,0 +1,30 @@
+#!/bin/bash
+echo -e "\e[32m
+Expense manager
+
+\e[39m"
+case "$1" in
+	docker)
+        arg=${3-travellist-app}
+        case "$2" in
+            up)
+                (docker-compose up)
+            ;;
+            down)
+                (docker-compose down)
+            ;;
+			build)
+				(docker-compose build)
+			;;
+            ssh)
+                (docker exec -it ${arg} /bin/bash )
+            ;;
+            migrate)
+                (docker exec -it ${arg} php artisan migrate)
+            ;;
+            rollback)
+                (docker exec -it ${arg} php artisan migrate:rollback)
+            ;;
+        esac
+    ;;
+esac
