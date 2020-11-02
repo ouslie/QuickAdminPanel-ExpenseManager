@@ -24,16 +24,25 @@ Features:
 ## How to use with docker
 
 - Clone the repository with __git clone__
-- Copy __.env.example__ file to __.env__ and edit database credentials there for docker use : DB_HOST: db & DB_PASSWORD: password
-- Run __docker-compose build__
-- RUN __ chmod +x manager
-- RUN __./manager docker up__
-- RUN __./manager docker ssh__
-- Run __composer install__
-- Run __php artisan key:generate__
-- Run __php artisan migrate --seed__ (it has some seeded data for your testing)
+- Copy __.env.example__ file to __.env__ and edit database credentials there for docker use : 
+    - DB_CONNECTION=mysql
+    - DB_HOST: db 
+    - DB_PORT=3306
+    - DB_DATABASE=travellist
+    - DB_USERNAME=travellist_user
+    - DB_PASSWORD: password
+- Run __chmod +x manager__
+- Run __./manager docker build__
+- Run __./manager docker up__
+- Run __./manager docker ssh__
+    - Run __composer install__
+    - Run __php artisan key:generate__
+    - Run __php artisan migrate --seed__ (it has some seeded data for your testing)
 - That's it: launch the main URL and login with default credentials __admin@admin.com__ - __password__
 
+Access to phpmyadmin : __http://localhost:8088__ 
+    User : root
+    Password: your_mysql_root_password
 
 ## License
 
